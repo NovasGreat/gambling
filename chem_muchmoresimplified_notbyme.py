@@ -1,4 +1,4 @@
-import os     # good god chatgpt absolutely destroyed my old code
+import os     # good god gpt absolutely destroyed my old code
 import time
 import platform
 
