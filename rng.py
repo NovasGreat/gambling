@@ -16,7 +16,16 @@ os_info = platform.uname()
 roll = "none"
 oneoutof = "none"
 
-
+def os_check():
+    if platform.system() == "Windows":
+        os.system('cls')
+    elif platform.system() == "Linux":
+        os.system('clear')
+    elif platform.system() == "Darwin":
+        os.system("clear && printf '\e[3J'")
+        os.system('clear')   
+    else:
+        print('what os are u using bruh')
 
 
 #----------------------
@@ -40,6 +49,34 @@ barrel_count = 0
 diamond_count = 0
 emerald_count = 0
 #----------------------
+
+
+
+def item_check():
+    print(f"Dirt count: {dirt_count}")
+    print(f"Oak Log count: {oak_log_count}")
+    print(f"Cobblestone count: {cobblestone_count}")
+    print(f"Wool count: {wool_count}")
+    print(f"Snow count:{snow_count}")
+    print(f"Lapiz Lazuli count: {lapiz_Lazuli_count}")
+    print(f"Quartz count: {quartz_count}")
+    print(f"Coal count: {coal_count}")
+    print(f"Copper count: {copper_count}")
+    print(f"Iron count: {iron_count}")
+    print(f"Gold count: {gold_count}")
+    print(f"Furnace count: {furnace_count}")
+    print(f"Stonecutter count: {stonecutter_count}")
+    print(f"Chest count: {chest_count}")
+    print(f"Hopper count: {hopper_count}")
+    print(f"Anvil count: {anvil_count}")
+    print(f"Barrel count: {barrel_count}")
+    print(f"Diamond count:{diamond_count}")
+    print(f"Emerald count: {emerald_count}")
+
+
+
+
+
 
 
 
@@ -128,19 +165,11 @@ increment_map = {
 
 while True:
     try:
-        
-        if platform.system() == "Windows":
-            os.system('cls')
-        elif platform.system() == "Linux":
-            os.system('clear')
-        elif platform.system() == "Darwin":
-            os.system("clear && printf '\e[3J'")
-            os.system('clear')
-        else:
-            print('what os are u using bruh')
+        os_check()
         print("Fake RNG")
-        print ('1 - gamble')
         print ('0 - exit')
+        print ('1 - gamble')
+        print ('2 - check items')
         print ('19 - save progress')
         print ('1567 - erase save')
         print('')
@@ -183,11 +212,14 @@ while True:
         if int(choice) == 0:
             print('bai')
             break
+        if int(choice) == 2:
+            os_check()
+            item_check()
+            print('')
+            input('Click enter to exit')
+            continue
         if int(choice) == 19:
-            print('grabbing save')
-            a = open("saves/save1.py", "w")
-            time.sleep(1)
-            print('done')
+            print('placeholder')
             time.sleep(1)
         if int(choice) == 1567:
             print('placeholder')
