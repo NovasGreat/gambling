@@ -9,8 +9,8 @@ import platform
                                      # How to commit (also push) tutorial incase i forget:
                                      # 1: git commit -m "message here"
                                      # 2: git push
-cd = 1
-times = 0
+cd = .5
+times_gambled = 0
 amount = 1
 os_info = platform.uname()
 roll = "none"
@@ -48,46 +48,9 @@ anvil_count = 0
 barrel_count = 0
 diamond_count = 0
 emerald_count = 0
+crafting_table_count = 0
 #----------------------
-def checkitem():
-    if roll_str == "Dirt":
-        dirt_count = dirt_count + 1
-    if roll_str == "Oak Log":
-        oak_log_count = oak_log_count + 1
-    if roll_str == "Cobblestone":
-        cobblestone_count = cobblestone_count + 1
-    if roll_str == "Wool":
-        wool_count = wool_count + 1
-    if roll_str == "Snow":
-        snow_count = snow_count + 1
-    if roll_str == "Lapiz Lazuli":
-        lapiz_lazuli_count = lapiz_lazuli_count + 1
-    if roll_str == "Quartz":
-        quartz_count = quartz_count + 1
-    if roll_str == "Coal":
-        coal_count = coal_count + 1
-    if roll_str == "Copper":
-        copper_count = copper_count + 1
-    if roll_str == "Iron":
-        iron_count = iron_count + 1
-    if roll_str == "Gold":
-        gold_count = gold_count + 1
-    if roll_str == "Furnace":
-        furnace_count = furnace_count + 1
-    if roll_str == "Stonecutter":
-        stonecutter_count = stonecutter_count + 1
-    if roll_str == "Chest":
-        chest_count = chest_count + 1
-    if roll_str == "Hopper":
-        hopper_count = hopper_count + 1
-    if roll_str == "Anvil":
-        anvil_count = anvil_count + 1
-    if roll_str == "Barrel":
-        barrel_count = barrel_count + 1
-    if roll_str == "Diamond":
-        diamond_count = diamond_count + 1
-    if roll_str == "Emerald":
-        emerald_count = emerald_count + 1
+
 
 
 def item_check():
@@ -98,6 +61,7 @@ def item_check():
     print(f"Snow count:{snow_count}")
     print(f"Lapiz Lazuli count: {lapiz_Lazuli_count}")
     print(f"Quartz count: {quartz_count}")
+    print(f"Crafting Table count: {crafting_table_count}")
     print(f"Coal count: {coal_count}")
     print(f"Copper count: {copper_count}")
     print(f"Iron count: {iron_count}")
@@ -163,6 +127,7 @@ thirtytwo = np.array([
 'Hopper',
 'Anvil,'
 'Barrel'
+'Crafting Table'
 
 
 ])
@@ -191,7 +156,8 @@ increment_map = {
     "Anvil":"anvil_count",
     "Barrel":"barrel_count",
     "Diamond":"diamond_count",
-    "Emerald":"emerald_count"
+    "Emerald":"emerald_count",
+    "Crafting Table":"crafting_table_count"
     
 
 }
@@ -211,7 +177,7 @@ while True:
         print ('19 - save progress')
         print ('1567 - erase save')
         print('')
-        print('times gambled: '+str(times))
+        print('times gambled: '+str(times_gambled))
         aa = sum(probability)
         print(str(oneoutof))
         print("Probability (should equal to 1 or 1.0): "+str(aa))
@@ -240,13 +206,17 @@ while True:
                 roll_actual = str(roll[0])
             #----------------------
             if roll_actual in increment_map:
-                variable_name = increment_map[roll_actual]
+                variable_name = increment_map[roll_actual] # turns whats inside roll_actual into a variable to add 1 to it depending on what it pulled
                 
                 globals()[variable_name] += 1  # Increment the correct variable dynamically
             print(roll_actual)
-            times = times + amount
-            print("["+str(*roll) + " - " + str(*oneoutof)+"]")
+            times_gambled = times_gambled + amount
+            os_check()
+            print('Rolling...')
             time.sleep(cd)
+            print("You have gotten: ["+str(*roll) + " - " + str(*oneoutof)+"]")
+            time.sleep(cd)
+            input("Click enter to continue...")
             continue
         
         if int(choice) == 0:
