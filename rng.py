@@ -49,7 +49,45 @@ barrel_count = 0
 diamond_count = 0
 emerald_count = 0
 #----------------------
-
+def checkitem():
+    if roll_str == "Dirt":
+        dirt_count = dirt_count + 1
+    if roll_str == "Oak Log":
+        oak_log_count = oak_log_count + 1
+    if roll_str == "Cobblestone":
+        cobblestone_count = cobblestone_count + 1
+    if roll_str == "Wool":
+        wool_count = wool_count + 1
+    if roll_str == "Snow":
+        snow_count = snow_count + 1
+    if roll_str == "Lapiz Lazuli":
+        lapiz_lazuli_count = lapiz_lazuli_count + 1
+    if roll_str == "Quartz":
+        quartz_count = quartz_count + 1
+    if roll_str == "Coal":
+        coal_count = coal_count + 1
+    if roll_str == "Copper":
+        copper_count = copper_count + 1
+    if roll_str == "Iron":
+        iron_count = iron_count + 1
+    if roll_str == "Gold":
+        gold_count = gold_count + 1
+    if roll_str == "Furnace":
+        furnace_count = furnace_count + 1
+    if roll_str == "Stonecutter":
+        stonecutter_count = stonecutter_count + 1
+    if roll_str == "Chest":
+        chest_count = chest_count + 1
+    if roll_str == "Hopper":
+        hopper_count = hopper_count + 1
+    if roll_str == "Anvil":
+        anvil_count = anvil_count + 1
+    if roll_str == "Barrel":
+        barrel_count = barrel_count + 1
+    if roll_str == "Diamond":
+        diamond_count = diamond_count + 1
+    if roll_str == "Emerald":
+        emerald_count = emerald_count + 1
 
 
 def item_check():
@@ -70,7 +108,7 @@ def item_check():
     print(f"Hopper count: {hopper_count}")
     print(f"Anvil count: {anvil_count}")
     print(f"Barrel count: {barrel_count}")
-    print(f"Diamond count:{diamond_count}")
+    print(f"Diamond count: {diamond_count}")
     print(f"Emerald count: {emerald_count}")
 
 
@@ -195,15 +233,17 @@ while True:
             "1/64": sixtyfour
             }
 
-            roll_str = str(roll[0]) # Converts the array value (the item name) to a string cause if i dont it gives me errors
+            roll_str = str(roll[0]) # Cvonerts the array value (the item name) to a string cause if i dont it gives me errors
             if roll_str in choices_map:
                 oneoutof = roll  # Assign roll value to oneoutof before overriding it to the actual choice
                 roll = np.random.choice(choices_map[roll_str], replace=True, size=amount)
+                roll_actual = str(roll[0])
             #----------------------
-            
-            if roll_str in increment_map:
-                variable_name = increment_map[roll_str]
-                globals()[variable_name] += 1 #increment the correct variable dynamically
+            if roll_actual in increment_map:
+                variable_name = increment_map[roll_actual]
+                
+                globals()[variable_name] += 1  # Increment the correct variable dynamically
+            print(roll_actual)
             times = times + amount
             print("["+str(*roll) + " - " + str(*oneoutof)+"]")
             time.sleep(cd)
