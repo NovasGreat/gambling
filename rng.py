@@ -63,7 +63,7 @@ def item_check():
     print(f"Coal count: {coal_count}")
     print(f"Copper count: {copper_count}")
     print(f"Iron count: {iron_count}")
-    print(f"Gold count: {gold_count}")
+    print(f"Gold count: {gold_count}") 
     print(f"Furnace count: {furnace_count}")
     print(f"Stonecutter count: {stonecutter_count}")
     print(f"Chest count: {chest_count}")
