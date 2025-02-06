@@ -16,6 +16,7 @@ os_info = platform.uname()
 roll = "none"
 oneoutof = "none"
 
+
 def os_check():
     if platform.system() == "Windows":
         os.system('cls')
@@ -91,9 +92,11 @@ main = [
 "1/32", 
 "1/64"
 ]
-probability = np.array([.50, .25, .125, .0625, .03125, .03125])
+# probability = np.array([.50, .25, .125, .0625, .03125, .03125]) # THIS IS THE PROBABILITY OF THE ITEMS!!!!
+probability = np.array([.10, .10, .10, .10, .50, .10])
 probability /= probability.sum()  # normalize
 print(probability)
+probabilitytotal = sum(probability)
 #----------------------
 
 #----------------------
@@ -125,8 +128,8 @@ thirtytwo = np.array([
 'Stonecutter',
 'Chest',
 'Hopper',
-'Anvil,'
-'Barrel'
+'Anvil',
+'Barrel',
 'Crafting Table'
 
 
@@ -178,9 +181,9 @@ while True:
         print ('1567 - erase save')
         print('')
         print('times gambled: '+str(times_gambled))
-        aa = sum(probability)
-        print(str(oneoutof))
-        print("Probability (should equal to 1 or 1.0): "+str(aa))
+        
+        # print("Probability (should equal to 1 or 1.0): "+str(probabilitytotal))
+        # the line above is just for test reasons
         print('Most Recent Roll: '+str(roll))
         choice = input('what u want to do: ')
         
@@ -226,8 +229,14 @@ while True:
             os_check()
             item_check()
             print('')
-            input('Click enter to exit')
+            input("Click enter to return...")
             continue
+        if int(choice) == 3:
+            if crafting_table_count >= 1:
+                print('hi')
+            else:
+                print('you dont have a crafting table')
+                input("Click enter to return...")
         if int(choice) == 19:
             print('placeholder')
             time.sleep(1)
