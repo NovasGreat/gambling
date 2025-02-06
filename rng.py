@@ -78,13 +78,14 @@ def item_check():
 
 
 # crafting recipes, potions (50 pulls each):
-# 1/2 Luck Potion (100 Dirt, 32 Glass) (Shop Cooldown: none)
-# 1/4 Luck Potion (64 Oak Logs (or 256 Oak Planks), 32 Glass) (Shop Cooldown: none)
-# 1/8 Luck Potion (64 Wool, 64 Oak Logs 32 Glass) (Shop Cooldown: 100 Pulls)
-# 1/16 Luck Potion (32 Copper, 64 Oak Logs 32 Glass) (Shop Cooldown: 500 Pulls)
-# 1/32 Luck Potion (32 Amethyst, 64 Oak Logs, 32 Glass) (Shop Cooldown: 1000 Pulls)
-# 1/64 Luck Potion (40 Diamond, 32 Glass) (Shop Cooldown: 2500 Pulls) 
+# 1/2 2x Luck Potion (100 Dirt, 32 Glass) (Shop Cooldown: none)
+# 1/4 2x Luck Potion (64 Oak Logs (or 256 Oak Planks), 32 Glass) (Shop Cooldown: none)
+# 1/8 2x Luck Potion (64 Wool, 64 Oak Logs 32 Glass) (Shop Cooldown: 100 Pulls)
+# 1/16 2x Luck Potion (32 Copper, 64 Oak Logs 32 Glass) (Shop Cooldown: 500 Pulls)
+# 1/32 2x Luck Potion (32 Amethyst, 64 Oak Logs, 32 Glass) (Shop Cooldown: 1000 Pulls)
+# 1/64 2x Luck Potion (40 Diamond, 32 Glass) (Shop Cooldown: 1000 Pulls) 
 
+# crafting recipes, tools
 # Wooden Pickaxe (20 Durability, 5 Oak Logs)
 # Wooden Axe (20 Durability, 5 Oak Logs)
 # Stone Axe (100 Durability, 5 Cobblestone, 5 Sticks)
@@ -96,9 +97,12 @@ def item_check():
 # Diamond Pickaxe (1000 Durability, 30 Diamond, 64 Sticks)
 # Diamond Axe (1000 Durability, 30 Diamond, 64 Sticks)
 
+# crafting recipies, normal items
 # Oak Planks x4 (1 Oak Log, 1 Axe Hit)
 # Sticks x4 (1 Oak Plank, 4 Axe Hits)
 
+# crafting recipes, permanant effects
+# 2x Luck (Toggleable)
 
 
 
@@ -128,12 +132,12 @@ four = np.array([
 
 
 ])
-eight = np.array()
+eight = np.array([
 "Wool",
 "Snow",
 "Lapiz Lazuli",
 "Quartz",
-"Coal",
+"Coal"
 
 ])
 sixteen = np.array([
