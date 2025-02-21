@@ -19,6 +19,9 @@ def os_check():
         os.system("clear && printf '\e[3J'")
         os.system('clear')   
 
+recent1 = 'none'
+recent2 = ''
+recent3 = ''
 atomic_masses = {
     "H": 1.008, "He": 4.0026, "Li": 6.94, "Be": 9.0122, "B": 10.81, "C": 12.011,
     "N": 14.007, "O": 15.999, "F": 18.998, "Ne": 20.180, "Na": 22.990, "Mg": 24.305,
@@ -49,6 +52,11 @@ while True:
         section_3 = 1
         section_4 = 1
         print('Mole Calculation (One-Step and Two-Step)')
+        print('')
+        print(f'Most Recent Equation: {recent1}')
+        print(f'{recent2}')
+        print(f'{recent3}')
+        print('')
         input('Push Enter to start! ')
         given = input('What did the problem give you? (liters, grams, molecules, moles): ')
         wants = input('What does the problem want? (liters, grams, molecules, moles): ')
@@ -63,21 +71,21 @@ while True:
             continue
 
         if given == 'molecules':
-           given_molecules = input('what are your given molecules: ')
+           given_molecules = input('What is the molecule amount?: ')
            given = given_molecules
            section_2 = 6.02e23
    
         if str_given == 'liters':
-           given_liters = input('what are your given liters: ') 
+           given_liters = input('What is the liters amount?: ') 
            given = given_liters
            section_2 = 22.4
      
         if given == 'moles':
-            given_moles = input('what are your given moles: ')
+            given_moles = input('What is the moles amount?: ')
             given = given_moles
             section_2 = 1
         if str_given == 'grams':
-            given_grams = input('what are your given grams: ')
+            given_grams = input('What is the grams amount?: ')
             given = given_grams
         if str_given == 'grams' or str_wants == 'grams':
             mass1 = 0
@@ -144,17 +152,25 @@ while True:
 
         if str_wants == 'liters' and str_given == 'moles':
             section_1 = 22.4
-        
+        if str_wants == 'molecules' and str_given == 'moles':
+            section_1 = 6.02e23
 
         
         
         
+        time.sleep(1)
+        os_check()
         
         total = float(given) * (float(section_1)/float(section_2)) * (float(section_3)/float(section_4))
+        rounded = format(total,'.4g')
         print(f'The equation used: {total} = {given} * ({section_1} / {section_2}) * ({section_3} / {section_4})')
         
+        recent1 = (f'{total} = {given} * ({section_1} / {section_2}) * ({section_3} / {section_4})')
+        recent2 = (f'There are {total} {str_wants} in {given} {str_given}.')
+        recent3 = (f'Rounded (by 2nd decimal): {rounded}')
+        print('')
         print(f'There are {total} {str_wants} in {given} {str_given}.')
-        
+        print(f'Rounded (by 2nd decimal): {rounded}')
         input('Enter to continue...')
     except ValueError:
         error
