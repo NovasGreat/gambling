@@ -58,6 +58,7 @@ while True:
         print(f'{recent3}')
         print('')
         input('Push Enter to start! ')
+        os_check()
         given = input('What did the problem give you? (liters, grams, molecules, moles): ')
         wants = input('What does the problem want? (liters, grams, molecules, moles): ')
         str_given = given
