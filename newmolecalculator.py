@@ -174,4 +174,4 @@ while True:
         print(f'Rounded (by 2nd decimal): {rounded}')
         input('Enter to continue...')
     except ValueError:
-        error76 
+        error
